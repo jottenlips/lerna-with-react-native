@@ -24,7 +24,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import {getVersion} from "shared";
+import {getVersion, SharedComp} from 'shared';
 
 const App: () => React$Node = () => {
   const version = getVersion();
@@ -41,10 +41,11 @@ const App: () => React$Node = () => {
               <Text style={styles.footer}>Engine: Hermes</Text>
             </View>
           )}
-          <View style={styles.body}>
+          <SharedComp style={styles.body}>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>
+                {version}
                 Edit <Text style={styles.highlight}>App.js</Text> to change this
                 screen and then come back to see your edits.
               </Text>
@@ -68,7 +69,7 @@ const App: () => React$Node = () => {
               </Text>
             </View>
             <LearnMoreLinks />
-          </View>
+          </SharedComp>
         </ScrollView>
       </SafeAreaView>
     </>
